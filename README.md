@@ -1,36 +1,40 @@
 # winecompliance
 
-This project is an example full stack application for viewing grape breakdowns of different wines. 
-Wine data has been provided and saved into the /serverside/resources/data folder.
+> This project is an example full stack application for viewing grape breakdowns of different wines. Wine data has been supplied and placed in the serverside/resources/data folder
+
+
+TODO add screenshots
+
+---
 
 ## Project requirements
-JDK 1.8 or later
-https://www.oracle.com/java/technologies/downloads/
-Gradle 4+
-https://gradle.org/install/
+1. [JDK 1.8](https://www.oracle.com/java/technologies/downloads/) or later
+2. [Gradle 4+](hhttps://gradle.org/install/)
 
 ## Running Application
-The easiest way to run the application is to simply build and run the jar with the following commands
-1. ./gradlew build
-2. java -jar ./serverside/build/libs/serverside.jar
-3. Navigate to localhost:8080 in Chrome
+The easiest way to run the application is to build and run the jar using the following commands, at the root of the project. 
+1. `./gradlew build`
+2. `java -jar ./serverside/build/libs/serverside.jar`
+3. Navigate to **localhost:8080** in Chrome
 
 ## Setup for development
 During development it's easier to run the client and server separately. Therefore, navigate to the clientside and serverside folders and run the following commands. 
 
 ### Clientside
-1. 'npm install'
-2. 'npm start'
+1. `cd clientside`
+2. `npm install`
+3. `npm start`
 
 ### Serverside
-2. ./gradlew booRun
+1. `cd serverside`
+2. `./gradlew bootRun`
 
 ## Assumptions
 1. No application security - authentication, authorisation, etc. 
-2. No database setup. The data is loaded into the application at startup
-3. Immutable data files during runtime - if the data files in the resource folder are edited, then the server must be restarted or the jar file recompiled. 
-4. Null values are handled by the frontend, not backend. The backend will return null value matching the provided data files. Afterwards null values will be displayed by the frontend as "No description", "Not provided", etc.  
-5. Since the provided data uses floats as percentage values, the serverside responses will also use floats as percentage values. 
+2. No database setup. The data files are loaded into the application at startup
+3. Immutable data files during application runtime - if the data files are edited, then the server must be restarted or the jar file recompiled. 
+4. Null values are handled by the frontend, not backend. The backend will return null value matching the provided data files. Afterwards, null values will be displayed by the frontend as "No description", "Not provided", etc.  
+5. Since the provided data files uses floats as percentage values, the serverside responses will also use floats as summarised percentage values. 
 
 
 
