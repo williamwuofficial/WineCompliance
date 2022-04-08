@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+}
+
+dependencies {
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.2.2'
+    implementation 'org.springframework.boot:spring-boot-dependencies:2.6.5'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+}
+
+springBoot {
+    mainClassName = 'com.example.winecompliance.App'
+}
