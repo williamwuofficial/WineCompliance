@@ -2,8 +2,7 @@
 
 > This project is an example full stack application for viewing grape breakdowns of different wines. Wine data has been supplied and placed in the serverside/resources/data folder
 
-
-
+![aBUEVQQbE4](https://user-images.githubusercontent.com/8399346/162607137-f032fa54-a20c-4dfd-8aa1-a2fe0596c9fb.gif)
 
 ---
 
