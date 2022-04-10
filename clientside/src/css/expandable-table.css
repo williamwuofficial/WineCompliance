@@ -1,0 +1,20 @@
+.expandable-table th {
+    font-size: 0.75rem;
+}
+
+.expandable-table tr {
+    border-bottom-width: 1px;
+    font-size: 0.8125rem;
+    color: #242525;
+}
+
+.expandable-table button {
+    color: #00928D;
+    font-size: 0.75rem; 
+}
+
+.expandable-table button:hover {
+    background-color: white;
+    color: #00928D;
+    border: 0px;
+}

@@ -1,0 +1,47 @@
+
+.spinner-border {
+  width: 10rem;
+  height: 10rem;
+}
+
+.wine-details-page {
+  height: 100%;
+  padding: 8.875rem 5rem;
+  background-color: #F5F5F5;
+  overflow-y: auto;
+  font-family: 'Montserrat';
+  font-weight: 300;
+}
+
+.wine-details-page h1 {
+  font-size: 2.1rem;
+}
+
+.wine-details-page .red-w-icon {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+
+@media (min-width: 991px) {
+  .wine-details-page {
+    padding: 8.875rem 16rem;
+  }
+}
+
+.wine-details > * {
+  font-size: 1.125rem;
+  color: #242525;
+}
+
+.wine-breakdown .nav-link {
+  color: #3A3B3B;
+  background-color: #F5F5F5;
+  font-size: 0.9375rem;
+}
+
+.wine-breakdown .nav-link.active {
+  background-color: #F5F5F5;
+  border-color: #F5F5F5 #F5F5F5 #00ADA8;
+  border-width: 2px;
+}

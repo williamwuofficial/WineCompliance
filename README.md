@@ -34,7 +34,7 @@ During development it's easier to run the client and server separately. Therefor
 2. No database setup. The data files are loaded into the application at startup
 3. Immutable data files during application runtime - if the data files are edited, then the server must be restarted or the jar file recompiled. 
 4. Null values are handled by the frontend, not backend. The backend will return null value matching the provided data files. Afterwards, null values will be displayed by the frontend as "No description", "Not provided", etc.  
-5. Since the provided data files uses floats as percentage values, the serverside responses will also use floats as summarised percentage values. 
+5. Since the provided data files uses float/double as percentage values, the serverside responses will also use float/double as summarised percentage values. 
 
 
 

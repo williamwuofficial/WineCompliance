@@ -10,9 +10,28 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.2.2'
     implementation 'org.springframework.boot:spring-boot-dependencies:2.6.5'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly project(':clientside')
+
+    implementation 'org.seleniumhq.selenium:selenium-java:4.1.3'
+    implementation 'org.seleniumhq.selenium:selenium-api:4.1.3'
+    implementation 'org.seleniumhq.selenium:selenium-remote-driver:4.1.3'
+    implementation 'org.seleniumhq.selenium:selenium-chrome-driver:4.1.3'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.1.0'
 
 }
 
 springBoot {
     mainClassName = 'com.example.winecompliance.App'
 }
+
+bootJar {
+    dependsOn ":clientside:build"
+    doFirst {
+        copy {
+            from "$rootDir/clientside/build"
+            into "$rootDir/serverside/build/resources/main/static/."
+        }
+    }
+}
+

@@ -1,0 +1,25 @@
+.wine-search-page {
+    background-color: #F5F5F5;
+    padding: 8.875rem 5rem;
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+
+@media (min-width: 991px) {
+    .wine-search-page {
+        padding: 8.875rem 20.5rem;
+    }
+}
+
+.search-input {
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.list-group-item {
+    font-size: 0.8125rem;
+}
+
+.list-group-item .lot-code{
+    font-size: 0.9375rem;
+} 

@@ -1,0 +1,15 @@
+plugins {
+    id 'base'
+    id 'com.moowork.node'
+}
+
+task appInstall(type: NpmTask) {
+    args = ["install"]
+}
+
+task appNpmBuild(type: NpmTask) {
+    dependsOn appInstall
+    args = ["run", "build"]
+}
+
+assemble.dependsOn(appNpmBuild)

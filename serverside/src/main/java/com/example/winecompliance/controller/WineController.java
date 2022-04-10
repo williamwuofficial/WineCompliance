@@ -7,7 +7,9 @@ import com.example.winecompliance.service.WineLookupService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Map;
@@ -39,16 +41,21 @@ public class WineController {
 
     private WineBreakdown getBreakdownByClassifier(String lotCode, String classificationName, Function<WineComponent,?> classifier) {
         Wine wine = wineService.readWine(lotCode);
-        List<WineBreakdown.Percentage> components = wine.components.stream()
-                .collect(Collectors.groupingBy(classifier,
-                        Collectors.summingDouble(foo->foo.percentage)))
-                .entrySet()
-                .stream()
-                .sorted(reverseOrder(Map.Entry.comparingByValue()))
-                .map(entry -> new WineBreakdown.Percentage(entry.getKey().toString(),entry.getValue()))
-                .collect(Collectors.toList());
-
-        return new WineBreakdown(classificationName, components);
+        if (wine != null) {
+            List<WineBreakdown.Percentage> components = wine.components.stream()
+                    .collect(Collectors.groupingBy(classifier,
+                            Collectors.summingDouble(foo -> foo.percentage)))
+                    .entrySet()
+                    .stream()
+                    .sorted(reverseOrder(Map.Entry.comparingByValue()))
+                    .map(entry -> new WineBreakdown.Percentage(entry.getKey().toString(), entry.getValue()))
+                    .collect(Collectors.toList());
+            return new WineBreakdown(classificationName, components);
+        } else {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "wine data not found"
+            );
+        }
     }
 
     @GetMapping("/year/{lotCode}")
