@@ -3,9 +3,7 @@
 > This project is an example full stack application for viewing grape breakdowns of different wines. Wine data has been supplied and placed in the serverside/resources/data folder
 
 
-![SearchPage](documentation/screenshots/SearchPage.PNG?raw=true "Search Page")
 
-![DetailsPage](documentation/screenshots/DetailsPage.PNG?raw=true "Details Page")
 
 ---
 
@@ -38,5 +36,14 @@ During development it's easier to run the client and server separately. Therefor
 4. Null values are handled by the frontend, not backend. The backend will return null value matching the provided data files. Afterwards, null values will be displayed by the frontend as "No description", "Not provided", etc.  
 5. Since the provided data files uses float/double as percentage values, the serverside responses will also use float/double as summarised percentage values. 
 
+## Screenshots 
+<figure>
+    <img src="documentation/screenshots/SearchPage.PNG" >
+    <figcaption>Search Page</figcaption>
+</figure>
 
+<figure>
+    <img src="documentation/screenshots/DetailsPage.PNG" >
+    <figcaption>Details Page</figcaption>
+</figure>
 
