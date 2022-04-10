@@ -9,7 +9,7 @@ TODO add screenshots
 
 ## Project requirements
 1. [JDK 1.8](https://www.oracle.com/java/technologies/downloads/) or later
-2. [Gradle 4+](hhttps://gradle.org/install/)
+2. [Gradle 4+](https://gradle.org/install/)
 
 ## Running Application
 The easiest way to run the application is to build and run the jar using the following commands, at the root of the project. 
