@@ -4,8 +4,6 @@
 
 ![aBUEVQQbE4](https://user-images.githubusercontent.com/8399346/162607137-f032fa54-a20c-4dfd-8aa1-a2fe0596c9fb.gif)
 
----
-
 ## Project requirements
 1. [JDK 1.8](https://www.oracle.com/java/technologies/downloads/) or later
 2. [Gradle 4+](https://gradle.org/install/)
