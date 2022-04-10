@@ -3,7 +3,9 @@
 > This project is an example full stack application for viewing grape breakdowns of different wines. Wine data has been supplied and placed in the serverside/resources/data folder
 
 
-TODO add screenshots
+![SearchPage](documentation/screenshots/SearchPage.PNG?raw=true "Search Page")
+
+![DetailsPage](documentation/screenshots/DetailsPage.PNG?raw=true "Details Page")
 
 ---
 
@@ -15,7 +17,7 @@ TODO add screenshots
 The easiest way to run the application is to build and run the jar using the following commands, at the root of the project. 
 1. `./gradlew build`
 2. `java -jar ./serverside/build/libs/serverside.jar`
-3. Navigate to **localhost:8080** in Chrome
+3. Navigate to [**http://localhost:8080/**](http://localhost:8080/) in Chrome (or any other modern browser)
 
 ## Setup for development
 During development it's easier to run the client and server separately. Therefore, navigate to the clientside and serverside folders and run the following commands. 
