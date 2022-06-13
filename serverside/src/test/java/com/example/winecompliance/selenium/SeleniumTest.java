@@ -6,10 +6,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -17,6 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class SeleniumTest {
 
     private static WebDriver webDriver;
+
+    private static WebDriverWait getWaitDriver() {
+         return new WebDriverWait(webDriver,10);
+    }
 
     @BeforeAll
     static void setup() {
@@ -33,12 +39,17 @@ public class SeleniumTest {
         webDriver.quit();
     }
 
+
+
     @Test
     public void searchResults() throws Exception {
         WineSearchPage page = new WineSearchPage(webDriver);
         page.navigateToPage();
         page.search("1");
-        assertEquals(3, page.getSearchResults().size());
+//      TODO: Selenium race conditions make it difficult to use asserts.
+//      assertEquals(3, page.getSearchResults().size());
+        getWaitDriver()
+                .until(drv->page.getSearchResults().size() == 3);
     }
 
     @Test
@@ -46,17 +57,28 @@ public class SeleniumTest {
         WineSearchPage page = new WineSearchPage(webDriver);
         page.navigateToPage();
         page.search("15");
+        getWaitDriver()
+                .until(drv-> page.getSearchResults().size() == 1);
         WebElement firstResult = page.getSearchResults().get(0);
         firstResult.click();
-        assertTrue(webDriver.getCurrentUrl().contains("/wine/15MPPN002-VK"));
-        assertEquals("15MPPN002-VK", (new WineDetailsPage(webDriver)).getLotCode());
+
+//      TODO: Selenium race conditions make it difficult to use asserts.
+//      assertTrue(webDriver.getCurrentUrl().contains("/wine/15MPPN002-VK"));
+//      assertEquals("15MPPN002-VK", (new WineDetailsPage(webDriver)).getLotCode());
+        getWaitDriver()
+                .until(drv->"15MPPN002-VK".equals((new WineDetailsPage(drv)).getLotCode()));
     }
 
     @Test
     public void wineDetailsPage() throws Exception {
         WineDetailsPage page = new WineDetailsPage(webDriver, "11YVCHAR001");
         page.navigateToPage();
-        assertEquals(3, page.getRegionBreakdown().size());
+//      TODO: Selenium race conditions make it difficult to use asserts.
+//      assertEquals(3, page.getRegionBreakdown().size());
+        getWaitDriver()
+                .ignoring(StaleElementReferenceException.class)
+                .until(drv -> page.getRegionBreakdown().size() == 3);
+
     }
 
 }
